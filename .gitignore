@@ -13,3 +13,4 @@ target/
 # you can create the intellij idea project file by running `sbt gen-idea`
 .idea
 .idea_modules
+/bin/

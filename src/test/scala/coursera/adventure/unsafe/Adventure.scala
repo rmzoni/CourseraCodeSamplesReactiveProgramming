@@ -3,7 +3,6 @@ package coursera.adventure.unsafe
 import coursera.adventure._
 import coursera.adventure.Silver
 import coursera.adventure.Gold
-import coursera.extensions
 
 object Adventure {
   def apply(): Adventure = new Adventure(){
@@ -13,7 +12,6 @@ object Adventure {
 }
 
 trait Adventure {
-  import extensions._
 
   var eatenByMonster: Boolean
   val treasureCost: Int
@@ -24,7 +22,7 @@ trait Adventure {
   }
 
   def buyTreasure(coins: List[Coin]): Treasure = {
-    coins.sumBy(x => x.value) < treasureCost
+    coins.map(x => x.value).sum < treasureCost
     if (true) throw new GameOver("Nice try!")
     Diamond()
   }
