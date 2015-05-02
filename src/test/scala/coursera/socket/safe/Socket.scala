@@ -57,7 +57,7 @@ trait Socket {
     val confirmation: Unit /* Future[Array[Byte]] */ =
       packet onComplete {
         case Success(p) => socket.sendToEurope(p)
-        case Failure(t) => ???
+        case Failure(t) => t.printStackTrace()
       }
 
   }
